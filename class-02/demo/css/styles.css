@@ -1,0 +1,25 @@
+/* the last one wins  */
+/* the most specific one wins  */
+#zelda{
+  background-color: crimson;
+}
+
+*{
+  background-color: beige;
+}
+
+header{
+  color: red;
+  border: 5px solid black;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.games{
+  background-color: burlywood;
+}
+
+.play{
+  background-color: coral;
+}
