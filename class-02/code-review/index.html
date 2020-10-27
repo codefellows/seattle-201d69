@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab-01-b</title>
+    <style>
+        footer{
+            color:blue;
+        }                     
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="background-color: blueviolet;">This is lab-01b</h1> <!--Inline styling-->
+    </header>
+    <main>
+    
+      <p style="color: green;">Question-one "Thank you for coming here. what is your name?"</p>
+      <p style="color: rgb(49, 47, 212);">Question-two "Where do you want to go first"</p>
+      <p style="color: red;">Question-three "What about your second choice?"</p>
+      <p>Question-four "Your last choice plase?"</p>
+    </main>
+
+    <footer>
+      <article>
+          &copy; Wondwosen
+      </article>
+    </footer>
+
+    <script>
+      var userName =prompt('Thank you for coming here. what is your name?');
+      console.log('Welcome! ' + userName);
+      alert('Welcome! ' + userName +' . Please click ok to tell me three places you want to visit' );
+
+      var toVisitFirst =prompt('Where do you want to go first ' + userName);
+      console.log('to visit first ' + toVisitFirst);
+      alert('Oh! ' + toVisitFirst +' is really a nice place to visit');
+
+      var toVisitSecond =prompt('What about your second choice?');
+      console.log('the second choice to visit ' + toVisitSecond);
+      alert('Nice! ' + toVisitSecond +' is worth a visit too, also ' + toVisitFirst + ' is beautiful, ' + userName + '.');
+
+      // var toVisitThird =prompt('Your last choice plase?');
+      // //console.log('Great! ' + toVisitThird + 'I was there 6 monthes ago.');
+      // alert('Great! I visited ' + toVisitThird + ' 6 monthes ago.');
+
+      // alert('I will arrange everything so that you can visit '+toVisitFirst+ ','+ toVisitSecond + ' and '+ toVisitThird + ' by 2022 summer and will let you know. see you')
+
+  </script>
+  </body>
+</html>
