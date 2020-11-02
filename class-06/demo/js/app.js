@@ -24,21 +24,32 @@ babyKnees.render();
 
 var dreamer = {
   filepath: './img/dreamer-1.jpg',
-  alt: 'dreamer',
-  title: 'dreamer'
+  alt: 'girl looking out window',
+  title: 'dreamer',
+  render: function(){
+    // 1. get the connection to the DOM
+    var dreamerParent = document.getElementById('dreamer');
+    
+    // 2. create an element
+    var h3Element = document.createElement('h3');
+    
+    // 3. fill it with content
+    h3Element.textContent = this.title + ' ' + this.alt;
+    
+    // 4. append to the DOM
+    dreamerParent.appendChild(h3Element);
+  }
 }
 
-// 1. get the connection to the DOM
-var dreamerParent = document.getElementById('dreamer');
+dreamer.render();
 
-// 2. create an element
-var h3Element = document.createElement('h3');
 
-// 3. fill it with content
-h3Element.textContent = dreamer.title;
 
-// 4. append to the DOM
-dreamerParent.appendChild(h3Element);
+
+
+
+
+
 
 var fence = {
   filepath: './img/fence-1.jpg',
