@@ -1,0 +1,24 @@
+body{
+  width: 960px;
+  background-color: gray;
+}
+
+header section{
+  float: left;
+}
+
+#logo, #banner, #action{
+  margin: 10px 0 0 10px;
+}
+
+#action{
+  background-color: white;
+  width: 230px;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+}
+
+nav{
+  clear: both;
+}
