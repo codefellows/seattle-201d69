@@ -8,6 +8,8 @@ var imageTwo = document.getElementById('image-two');
 var imageThree = document.getElementById('image-three');
 var uniqueRandomNumbers = [];
 var totalVotes = 0;
+var namesArray = [];
+var votesArray = [];
 
 // 2. make a constructor for the pictures
 var Product = function(name, endOfFile){
@@ -109,6 +111,8 @@ function voteForImages(e){
 
   if(totalVotes === 5){
     containerElement.removeEventListener('click', voteForImages);
+    generateChartData();
+    generateChart();
   }
 
 }
@@ -116,47 +120,61 @@ function voteForImages(e){
 // 6. event listener to listen on the container
 containerElement.addEventListener('click', voteForImages);
 
+function generateChartData(){
+  for(var i=0; i<allImages.length; i++){
+    namesArray.push(allImages[i].alt);
+    votesArray.push(allImages[i].votes);
+  }
+}
+
+function generateChart(){
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: namesArray, 
+          datasets: [{
+              label: '# of Bananas',
+              data: votesArray,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
+
 render();
-
-// makes a for loop to generate an array of the number of votes and an array of the names
-  // loop over the allImages array
-
-// wrap this chart stuff in a function and call this function once they hit 25 votes
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['apples', 'bananas', 'pears', 'cookies'], // names of all the pictures
-        datasets: [{
-            label: '# of Bananas',
-            data: [2, 4, 6, 10], // number of votes
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
