@@ -1,0 +1,8 @@
+img{
+    width: 25%;
+}
+
+canvas {
+    width: 75%;
+    max-height: 75%;
+}
