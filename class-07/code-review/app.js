@@ -24,6 +24,7 @@ function Store(name, minCutomers, maxCustomers, averageCookieSale){
 // prototypes
 
 Store.prototype.generateCustomersEachHour = function(){
+  this.customersEachHour = [];
     // generate the customers each hour
     
     for(var i=0; i<hours.length; i++){
@@ -33,6 +34,7 @@ Store.prototype.generateCustomersEachHour = function(){
 }
 
 Store.prototype.generateCookiesSoldEachHour = function(){
+  this.cookiesSoldEachHour = [];
     // generate the cookies sold each hour
 
     // loop over my customersEachHour and multiply that number by my averageCookieSale
@@ -40,7 +42,7 @@ Store.prototype.generateCookiesSoldEachHour = function(){
       var cookieTotalForTheHour = Math.ceil(this.customersEachHour[i] * this.averageCookieSale);
       this.cookiesSoldEachHour.push(cookieTotalForTheHour);
 
-      console.log('cookies for the day', this.cookiesForTheDay)
+      // console.log('cookies for the day', this.cookiesForTheDay)
       // total for the day
       this.cookiesForTheDay = this.cookiesForTheDay + cookieTotalForTheHour;
     }
@@ -162,6 +164,34 @@ function generateFooterRow(){
   trElement.appendChild(tdElement);
 
 }
+
+var formElement = document.getElementById('form');
+formElement.addEventListener('submit', function(e){
+  // prevent default so that the info doesn't go away
+  e.preventDefault();
+  // get the information from the form
+  var city = e.target.city.value;
+  var minCutomers = parseInt(e.target.mincust.value);
+  var maxCustomers = Number(e.target.maxcust.value);
+  var averageCookieSale = Number(e.target.avgcookies.value);
+
+  formElement.reset(); 
+
+  // pass the info into our constructor function and make a new object instance
+  new Store(city, minCutomers, maxCustomers, averageCookieSale);
+  // empty the table
+  document.getElementById('seattle').innerHTML = '';
+  // create the header row
+  generateHeaderRow();
+  // create the body rows
+  for(var i=0; i<allStores.length; i++){
+    allStores[i].generateCustomersEachHour();
+    allStores[i].generateCookiesSoldEachHour();
+    allStores[i].render();
+  }
+  // create the footer rows
+  generateFooterRow();
+});
 
 generateHeaderRow();
 // calls methods on all of my object instances
