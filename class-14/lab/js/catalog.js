@@ -12,8 +12,10 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');           // * added
   for (var i=0; i < Product.allProducts.length; i++) {            // * added
-    var productOption = document.createElement('option', value=Product.allProducts[i].name);         // * added
+    var productOption = document.createElement('option');         // * added
+    // var productValue = Product.allProducts[i].name;
     productOption.textContent = Product.allProducts[i].name;      // * added
+    // productOption.setAttribute(value, productValue);
     selectElement.appendChild(productOption);                    // * added
   }
 
@@ -43,8 +45,8 @@ function addSelectedItemToCart() {
   var itemSelected = selectElement.value;
   var quantityElement = document.getElementById('quantity');
   var itemAmount = quantityElement.value;
-  new CartItem(itemSelected, itemAmount);
-
+  var newCartItem = new CartItem(itemSelected, itemAmount);
+  Cart.push(newCartItem);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
