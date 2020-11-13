@@ -1,4 +1,5 @@
 'use strict';
+Product.allProducts = [];
 
 // Cart constructor.
 var Cart = function(items) {
@@ -30,7 +31,7 @@ var Product = function(filePath, name) {
   this.name = name;
   Product.allProducts.push(this);
 };
-Product.allProducts = [];
+
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
