@@ -1,1 +1,53 @@
 /* TODO: Make it awesome */
+
+body{
+    background-color: blanchedalmond;
+}
+h1{
+    font-size: 35px;
+    font-weight: bolder;
+    text-align: center;
+
+}
+ ul li{
+    float: left;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.copy{
+    font-size: 24px;
+    font-style: oblique;
+    font-weight: bolder;
+    padding-top: 100px;
+}
+
+footer{
+    position: relative;
+    top: 400px;
+    left: 500px;
+    border: 3px solid black;
+    height: 40px;
+    width: 400px;
+    
+    text-align: center;
+}
+#catalog{
+    position: relative;
+    left: 950px;
+    bottom: 250px;
+
+}
+#quantity{
+
+}
+@keyframes blink {
+    0% {color: salmon;}
+    25% {color: gold}
+    50% {color: hotpink}
+    75% {color: coral}
+    100% {color: blanchedalmond}
+  }
+   .card{
+     
+  }

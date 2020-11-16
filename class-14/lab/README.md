@@ -59,3 +59,11 @@ The starter code for this lab is found in the daily class repo.
     - How did this go, overall?
     - What observations or questions do you have about what you've learned so far?
     - How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+ 
+ 
+ 
+ 
+ ## CONTRIBIUTION
+  
+today an this application i worked with wondwosen i was a navigator for
+ the first three hours and a driver for the last three hours, at first we had some git forking problems that were solved later by a TA Ron.  
